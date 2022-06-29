@@ -9,12 +9,11 @@ export const bankHolidaysSlice = createSlice({
   initialState,
   reducers: {
     initilizeBankHolidays: (state, action) => {
-      state.events = action.payload.events;
+      state.events = action.payload;
     },
   },
 });
 
-export const {initializeLandmarks, likeLandmark, selectLandmark} =
-  bankHolidaysSlice.actions;
+export const {initilizeBankHolidays} = bankHolidaysSlice.actions;
 
 export default bankHolidaysSlice.reducer;

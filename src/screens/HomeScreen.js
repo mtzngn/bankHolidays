@@ -1,17 +1,25 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
+import {fetchBankHolidays} from '../api';
+import {useDispatch, useSelector} from 'react-redux';
+import {initilizeBankHolidays} from '../reducers/bankHolidaysReducer';
 
 const HomeScreen = ({navigation}) => {
-  const [days, setDays] = useState();
-  const getBankHolidays = async () => {
-    const response = await fetch('https://www.gov.uk/bank-holidays.json');
-    const data = await response.json();
-    console.log('gollum', data);
+  const dispatch = useDispatch();
+
+  const initiliazeReduxStore = async () => {
+    const bankHolidays = await fetchBankHolidays();
+    const englandAndWales = bankHolidays['england-and-wales'].events;
+    dispatch(
+      initilizeBankHolidays({
+        englandAndWales,
+      }),
+    );
   };
 
   useEffect(() => {
-    getBankHolidays();
-  }, []);
+    initiliazeReduxStore();
+  });
 
   return (
     <View>
