@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, TouchableOpacity, Touchable} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 
 const HomeScreen = ({navigation}) => {
   const [days, setDays] = useState();

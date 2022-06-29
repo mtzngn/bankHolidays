@@ -2,7 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './src/screens/HomeScreen';
-import EditCard from './src/screens/EditCard';
+import EditCard from './src/screens/EditCardScreen';
 
 const Stack = createNativeStackNavigator();
 
