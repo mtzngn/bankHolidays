@@ -1,5 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import HomeScreen from './src/screens/HomeScreen';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   const [days, setDays] = useState();
@@ -14,9 +18,11 @@ const App = () => {
   }, []);
 
   return (
-    <SafeAreaView>
-      <Text>yowwww</Text>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
