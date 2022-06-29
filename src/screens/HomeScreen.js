@@ -1,18 +1,19 @@
 import React, {useEffect} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {SafeAreaView} from 'react-native';
 import {fetchBankHolidays} from '../api';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {initilizeBankHolidays} from '../reducers/bankHolidaysReducer';
+import EventList from '../components/EventList/EventList';
 
 const HomeScreen = ({navigation}) => {
   const dispatch = useDispatch();
 
   const initiliazeReduxStore = async () => {
     const bankHolidays = await fetchBankHolidays();
-    const englandAndWales = bankHolidays['england-and-wales'].events;
+    const events = bankHolidays['england-and-wales'].events;
     dispatch(
       initilizeBankHolidays({
-        englandAndWales,
+        events,
       }),
     );
   };
@@ -22,12 +23,9 @@ const HomeScreen = ({navigation}) => {
   });
 
   return (
-    <View>
-      <Text>HomeScreen</Text>
-      <TouchableOpacity onPress={() => navigation.navigate('EditCard')}>
-        <Text>take me to edit card</Text>
-      </TouchableOpacity>
-    </View>
+    <SafeAreaView>
+      <EventList />
+    </SafeAreaView>
   );
 };
 
