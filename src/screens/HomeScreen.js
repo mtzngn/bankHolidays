@@ -5,7 +5,7 @@ import {useDispatch} from 'react-redux';
 import {initilizeBankHolidays} from '../reducers/bankHolidaysReducer';
 import EventList from '../components/EventList/EventList';
 
-const HomeScreen = ({navigation}) => {
+const HomeScreen = () => {
   const dispatch = useDispatch();
 
   const initiliazeReduxStore = async () => {

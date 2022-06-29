@@ -1,18 +1,26 @@
 import React from 'react';
-import {Text, ScrollView, SafeAreaView} from 'react-native';
+import {Text, ScrollView, View, StyleSheet} from 'react-native';
 import {useSelector} from 'react-redux';
+import EventCard from '../EventCard/EventCard';
+
+const styles = StyleSheet.create({
+  eventListContainer: {
+    alignItems: 'center',
+    paddingLeft: 10,
+  },
+});
 
 const EventList = () => {
   const {events} = useSelector(state => state.bankHolidays);
   const renderEventCards = () => {
-    return events.map(event => {
-      return <Text>{event.title}</Text>;
+    return events.map((event, i) => {
+      return <EventCard event={event} key={`${event.date}${i}`} />;
     });
   };
   return (
-    <SafeAreaView>
+    <View style={styles.eventListContainer}>
       <ScrollView>{events.length > 0 && renderEventCards()}</ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
