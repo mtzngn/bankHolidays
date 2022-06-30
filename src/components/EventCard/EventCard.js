@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/core';
 import {formatText} from '../../utils';
 
 const styles = StyleSheet.create({
@@ -45,8 +46,13 @@ const styles = StyleSheet.create({
 });
 
 const EventCard = ({event}) => {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity style={styles.cardContainer}>
+    <TouchableOpacity
+      style={styles.cardContainer}
+      onPress={() => {
+        navigation.navigate('EditEventCardScreen', {event});
+      }}>
       <View style={styles.divisionAndDateContainer}>
         <Text style={styles.title}>{formatText(event.division)}</Text>
         <Text style={styles.date}>{event.date}</Text>
