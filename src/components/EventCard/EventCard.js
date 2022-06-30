@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {formatText} from '../../utils';
 
 const styles = StyleSheet.create({
   cardContainer: {
@@ -30,7 +31,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: '700',
-    fontSize: 16,
+    fontSize: 14,
+    textAlign: 'center',
   },
   text: {
     fontWeight: '300',
@@ -43,11 +45,10 @@ const styles = StyleSheet.create({
 });
 
 const EventCard = ({event}) => {
-  console.log('event', event);
   return (
     <TouchableOpacity style={styles.cardContainer}>
       <View style={styles.divisionAndDateContainer}>
-        <Text style={styles.title}>England</Text>
+        <Text style={styles.title}>{formatText(event.division)}</Text>
         <Text style={styles.date}>{event.date}</Text>
       </View>
       <View style={styles.titleAndNoteContainer}>

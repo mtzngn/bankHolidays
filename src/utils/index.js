@@ -20,3 +20,17 @@ export const addDivisons = eventsArray => {
   });
   return [...englandDays, ...scotlandDays, ...northenIrelandDays];
 };
+
+export const capitalizeWords = str => {
+  const words = str.split(' ');
+
+  return words
+    .map(word => {
+      return word[0].toUpperCase() + word.substring(1);
+    })
+    .join(' ');
+};
+
+export const formatText = str => {
+  return capitalizeWords(str.replace(/\-/g, ' '));
+};

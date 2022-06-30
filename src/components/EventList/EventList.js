@@ -19,7 +19,7 @@ const EventList = () => {
   };
   return (
     <View style={styles.eventListContainer}>
-      <ScrollView>{events.length > 0 && renderEventCards()}</ScrollView>
+      <ScrollView>{events?.length > 0 && renderEventCards()}</ScrollView>
     </View>
   );
 };
