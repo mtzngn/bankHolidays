@@ -12,11 +12,9 @@ const styles = StyleSheet.create({
 
 const EventList = () => {
   const {events} = useSelector(state => state.bankHolidays);
-  const renderEventCards = () => {
-    return events.map((event, i) => {
-      return <EventCard event={event} key={event.id} />;
-    });
-  };
+  const renderEventCards = () =>
+    events.map((event, i) => <EventCard event={event} key={event.id} />);
+
   return (
     <View style={styles.eventListContainer}>
       <ScrollView>{events?.length > 0 && renderEventCards()}</ScrollView>

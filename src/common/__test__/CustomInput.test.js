@@ -15,6 +15,7 @@ describe('CustomInput', () => {
       expect(getByDisplayValue('testValue')).toBeTruthy();
     });
   });
+
   describe('OnChange', () => {
     it('should call onChangeText', () => {
       const {getByDisplayValue} = render(<CustomInput {...props} />);
