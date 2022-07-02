@@ -1,10 +1,15 @@
 import React, {useEffect} from 'react';
-import {SafeAreaView} from 'react-native';
-import {fetchBankHolidays} from '../api/bankHolidaysApi';
+import {SafeAreaView, StyleSheet} from 'react-native';
 import {useDispatch} from 'react-redux';
+import {fetchBankHolidays} from '../api/bankHolidaysApi';
 import {initilizeBankHolidays} from '../reducers/bankHolidaysReducer';
-import EventList from '../components/EventList/EventList';
 import {addDivisons, filterBySixMonthFromNow} from '../utils/generalFunctions';
+import {white} from '../themes/colors';
+import EventList from '../components/EventList/EventList';
+
+const styles = StyleSheet.create({
+  homeWrapper: {backgroundColor: white},
+});
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
@@ -26,7 +31,7 @@ const HomeScreen = () => {
   });
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.homeWrapper}>
       <EventList />
     </SafeAreaView>
   );

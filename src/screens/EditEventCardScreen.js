@@ -1,15 +1,18 @@
-import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import {useDispatch} from 'react-redux';
 import {updateEvent} from '../reducers/bankHolidaysReducer';
 import {Button} from '@react-native-material/core';
-import {green} from '../themes/colors';
+import {green, white} from '../themes/colors';
 import CustomInput from '../common/CustomInput';
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    paddingTop: '10%',
     alignItems: 'center',
+    backgroundColor: white,
   },
 });
 

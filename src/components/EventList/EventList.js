@@ -6,7 +6,7 @@ import EventCard from '../EventCard/EventCard';
 const styles = StyleSheet.create({
   eventListContainer: {
     alignItems: 'center',
-    paddingLeft: 10,
+    height: '100%',
   },
 });
 
