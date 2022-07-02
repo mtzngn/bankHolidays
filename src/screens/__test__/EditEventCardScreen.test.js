@@ -77,7 +77,7 @@ describe('EditEventCardScreen', () => {
       it('should navigate user to Home Screen', () => {
         const {getByText} = render(<EditEventCardScreen {...props} />);
         fireEvent.press(getByText('Submit'));
-        expect(mockedNavigate).toHaveBeenCalledWith('UK Bank Holidays');
+        expect(mockedNavigate).toHaveBeenCalledWith('Home');
       });
       it('should dispatch updateEvent action', () => {
         const {getByText} = render(<EditEventCardScreen {...props} />);

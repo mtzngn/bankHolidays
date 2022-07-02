@@ -10,7 +10,11 @@ const Router = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="UK Bank Holidays" component={HomeScreen} />
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{title: 'UK Bank Holidays'}}
+        />
         <Stack.Screen name="Edit Event" component={EditEventCardScreen} />
       </Stack.Navigator>
     </NavigationContainer>

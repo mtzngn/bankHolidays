@@ -28,7 +28,7 @@ const EditEventCardScreen = ({route}) => {
   const onSubmitPress = () => {
     const updatedEvent = {date, notes, division, title, id};
     dispatch(updateEvent({updatedEvent}));
-    navigation.navigate('UK Bank Holidays');
+    navigation.navigate('Home');
   };
 
   const renderInputs = () => {
