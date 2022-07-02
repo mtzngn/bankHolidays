@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
 import HomeScreen from '../HomeScreen';
-import * as apiCalls from '../../api';
+import * as apiCalls from '../../api/bankHolidaysApi';
 
 const mockedDispatch = jest.fn();
 jest.mock('react-redux', () => ({

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {SafeAreaView} from 'react-native';
-import {fetchBankHolidays} from '../api';
+import {fetchBankHolidays} from '../api/bankHolidaysApi';
 import {useDispatch} from 'react-redux';
 import {initilizeBankHolidays} from '../reducers/bankHolidaysReducer';
 import EventList from '../components/EventList/EventList';
