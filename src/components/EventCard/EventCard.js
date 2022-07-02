@@ -2,7 +2,13 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {formatText} from '../../utils/generalFunctions';
-import {gray, white, green10, green} from '../../themes/colors';
+import {
+  gray,
+  white,
+  green10,
+  scotlandBlue,
+  englandRed,
+} from '../../themes/colors';
 
 const styles = division =>
   StyleSheet.create({
@@ -25,7 +31,7 @@ const styles = division =>
       justifyContent: 'space-between',
       paddingVertical: 5,
       borderLeftWidth: 5,
-      borderLeftColor: division === 'scotland' ? '##004b84' : '#CF081F',
+      borderLeftColor: division === 'scotland' ? scotlandBlue : englandRed,
     },
     titleAndNoteContainer: {
       backgroundColor: white,
