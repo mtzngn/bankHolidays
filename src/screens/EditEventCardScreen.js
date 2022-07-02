@@ -1,23 +1,25 @@
-import {useNavigation} from '@react-navigation/core';
+import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {updateEvent} from '../reducers/bankHolidaysReducer';
-import {TextInput, Button} from '@react-native-material/core';
+import {Button} from '@react-native-material/core';
 import {green} from '../themes/colors';
+import CustomInput from '../common/CustomInput';
 
 const styles = StyleSheet.create({
   container: {
-    width: '90%',
-    margin: 5,
+    alignItems: 'center',
   },
 });
 
 const EditEventCardScreen = ({route}) => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
+
   const {event} = route.params;
   const {id} = event;
+
   const [date, setDate] = useState(event.date);
   const [division, setDivision] = useState(event.division);
   const [notes, setNotes] = useState(event.notes);
@@ -26,41 +28,39 @@ const EditEventCardScreen = ({route}) => {
   const onSubmitPress = () => {
     const updatedEvent = {date, notes, division, title, id};
     dispatch(updateEvent({updatedEvent}));
-    navigation.navigate('Home');
+    navigation.navigate('UK Bank Holidays');
   };
 
-  return (
-    <View style={{alignItems: 'center'}}>
-      <View style={styles.container}>
-        <TextInput value={date} label={'Date'} onChangeText={setDate} />
-      </View>
-
-      <View style={styles.container}>
-        <TextInput
+  const renderInputs = () => {
+    return (
+      <>
+        <CustomInput value={date} label="Date" onChangeText={setDate} />
+        <CustomInput
           value={division}
-          label={'Division'}
+          label="Division"
           onChangeText={setDivision}
         />
-      </View>
+        <CustomInput value={notes} label="Notes" onChangeText={setNotes} />
+        <CustomInput value={title} label="Title" onChangeText={setTitle} />
+      </>
+    );
+  };
 
-      <View style={styles.container}>
-        <TextInput value={notes} label={'Notes'} onChangeText={setNotes} />
-      </View>
-
-      <View style={styles.container}>
-        <TextInput
-          value={title}
-          label={'Title'}
-          onChangeText={setTitle}
-          color={green}
-        />
-      </View>
+  const renderSubmitButton = () => {
+    return (
       <Button
         title="Submit"
         variant="contained"
         onPress={onSubmitPress}
         color={green}
       />
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      {renderInputs()}
+      {renderSubmitButton()}
     </View>
   );
 };
