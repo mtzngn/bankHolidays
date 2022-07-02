@@ -34,6 +34,7 @@ const EditEventCardScreen = ({route}) => {
   const renderInputs = () => {
     return (
       <>
+        <CustomInput value={title} label="Title" onChangeText={setTitle} />
         <CustomInput value={date} label="Date" onChangeText={setDate} />
         <CustomInput
           value={division}
@@ -41,7 +42,6 @@ const EditEventCardScreen = ({route}) => {
           onChangeText={setDivision}
         />
         <CustomInput value={notes} label="Notes" onChangeText={setNotes} />
-        <CustomInput value={title} label="Title" onChangeText={setTitle} />
       </>
     );
   };

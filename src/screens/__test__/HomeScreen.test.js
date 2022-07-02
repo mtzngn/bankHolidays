@@ -3,10 +3,10 @@ import {render} from '@testing-library/react-native';
 import HomeScreen from '../HomeScreen';
 import * as apiCalls from '../../api';
 
-const mockDispatch = jest.fn();
+const mockedDispatch = jest.fn();
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
-  useDispatch: jest.fn().mockImplementation(() => mockDispatch),
+  useDispatch: () => mockedDispatch,
   useSelector: jest
     .fn()
     .mockImplementation(jest.fn)
@@ -57,7 +57,7 @@ describe('HomeScreen', () => {
       expect(getByText('testNote')).toBeTruthy();
     });
   });
-  describe('api', () => {
+  describe('onMount', () => {
     it('should make an api call to fetch the bank holidays data', () => {
       render(<HomeScreen />);
       expect(apiCalls.fetchBankHolidays).toHaveBeenCalled();
