@@ -1,9 +1,10 @@
 import {useNavigation} from '@react-navigation/core';
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {updateEvent} from '../reducers/bankHolidaysReducer';
 import {TextInput, Button} from '@react-native-material/core';
+import {green} from '../themes/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -51,14 +52,14 @@ const EditEventCardScreen = ({route}) => {
           value={title}
           label={'Title'}
           onChangeText={setTitle}
-          color="red"
+          color={green}
         />
       </View>
       <Button
         title="Submit"
-        variant="outlined"
+        variant="contained"
         onPress={onSubmitPress}
-        color="red"
+        color={green}
       />
     </View>
   );

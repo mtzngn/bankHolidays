@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/core';
 import {formatText} from '../../utils';
+import {gray, white, green} from '../../themes/colors';
 
 const styles = StyleSheet.create({
   cardContainer: {
@@ -9,7 +10,7 @@ const styles = StyleSheet.create({
     width: '95%',
     height: 70,
     marginVertical: 10,
-    shadowColor: '#000',
+    shadowColor: gray,
     shadowOffset: {width: 1.5, height: 1.5},
     shadowOpacity: 0.4,
     shadowRadius: 3,
@@ -17,15 +18,15 @@ const styles = StyleSheet.create({
   },
   divisionAndDateContainer: {
     padding: 1,
-    backgroundColor: 'white',
+    backgroundColor: white,
     width: '30%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRightWidth: 1,
-    borderRightColor: 'green',
+    borderRightColor: green,
   },
   titleAndNoteContainer: {
-    backgroundColor: 'white',
+    backgroundColor: white,
     width: '70%',
     alignItems: 'center',
     justifyContent: 'center',
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: '300',
     fontSize: 14,
-    color: 'gray',
+    color: gray,
   },
   date: {
     fontSize: 14,
@@ -51,7 +52,7 @@ const EventCard = ({event}) => {
     <TouchableOpacity
       style={styles.cardContainer}
       onPress={() => {
-        navigation.navigate('EditEventCardScreen', {event});
+        navigation.navigate('Edit Event', {event});
       }}>
       <View style={styles.divisionAndDateContainer}>
         <Text style={styles.title}>{formatText(event.division)}</Text>

@@ -12,7 +12,6 @@ export const bankHolidaysSlice = createSlice({
       state.events = action.payload.events;
     },
     updateEvent: (state, action) => {
-      console.log(action.payload);
       const updatedEvent = action.payload.updatedEvent;
       const eventId = updatedEvent.id;
       state.events = state.events.map(event =>
