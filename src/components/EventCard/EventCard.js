@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
-import {formatText} from '../../utils';
+import {formatText} from '../../utils/generalFunctions';
 import {gray, white, green} from '../../themes/colors';
 
 const styles = StyleSheet.create({

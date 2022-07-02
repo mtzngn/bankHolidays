@@ -4,7 +4,7 @@ import {fetchBankHolidays} from '../api/bankHolidaysApi';
 import {useDispatch} from 'react-redux';
 import {initilizeBankHolidays} from '../reducers/bankHolidaysReducer';
 import EventList from '../components/EventList/EventList';
-import {addDivisons, filterBySixMonthFromNow} from '../utils';
+import {addDivisons, filterBySixMonthFromNow} from '../utils/generalFunctions';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
