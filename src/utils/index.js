@@ -9,15 +9,25 @@ export const filterBySixMonthFromNow = eventsArray => {
 };
 
 export const addDivisons = eventsArray => {
-  const englandDays = eventsArray['england-and-wales'].events.map(el => {
-    return {...el, division: eventsArray['england-and-wales'].division};
+  const englandDays = eventsArray['england-and-wales'].events.map((el, i) => {
+    return {
+      ...el,
+      division: eventsArray['england-and-wales'].division,
+      id: `england${i}`,
+    };
   });
-  const scotlandDays = eventsArray.scotland.events.map(el => {
-    return {...el, division: eventsArray.scotland.division};
+  const scotlandDays = eventsArray.scotland.events.map((el, i) => {
+    return {...el, division: eventsArray.scotland.division, id: `scotland${i}`};
   });
-  const northenIrelandDays = eventsArray['northern-ireland'].events.map(el => {
-    return {...el, division: eventsArray['northern-ireland'].division};
-  });
+  const northenIrelandDays = eventsArray['northern-ireland'].events.map(
+    (el, i) => {
+      return {
+        ...el,
+        division: eventsArray['northern-ireland'].division,
+        id: `ireland${i}`,
+      };
+    },
+  );
   return [...englandDays, ...scotlandDays, ...northenIrelandDays];
 };
 
