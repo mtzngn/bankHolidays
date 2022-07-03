@@ -1,4 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {sortByDate} from '../utils/generalFunctions';
 
 const initialState = {
   events: [],
@@ -17,6 +18,7 @@ export const bankHolidaysSlice = createSlice({
       state.events = state.events.map(event =>
         event.id === eventId ? {...updatedEvent} : {...event},
       );
+      state.events = sortByDate(state.events);
     },
   },
 });
