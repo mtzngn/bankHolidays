@@ -63,9 +63,7 @@ const EventCard = ({event}) => {
         navigation.navigate('Edit Event', {event});
       }}>
       <View style={styles(event.division).divisionAndDateContainer}>
-        <Text style={styles().title}>
-          {event.division && formatText(event.division)}
-        </Text>
+        <Text style={styles().title}>{formatText(event.division)}</Text>
         <Text style={styles().date}>{event.date}</Text>
       </View>
       <View style={styles().titleAndNoteContainer}>

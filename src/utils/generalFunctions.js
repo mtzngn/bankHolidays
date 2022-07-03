@@ -42,6 +42,8 @@ export const capitalizeWords = str => {
 };
 
 export const formatText = str => {
+  if (str === null || str === undefined || str === '' || /^\s+$/.test(str))
+    return str;
   return capitalizeWords(str.replace(/\-/g, ' '));
 };
 

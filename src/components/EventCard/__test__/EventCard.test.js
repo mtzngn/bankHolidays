@@ -24,6 +24,7 @@ const props = {
 };
 
 describe('EventCard', () => {
+  beforeAll(() => jest.clearAllMocks());
   describe('renders', () => {
     it('should render', () => {
       const {getByText} = render(<EventCard {...props} />);

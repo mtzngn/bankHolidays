@@ -36,6 +36,8 @@ jest.mock('@react-navigation/native', () => {
 jest.spyOn(apiCalls, 'fetchBankHolidays').mockImplementation(jest.fn);
 
 describe('HomeScreen', () => {
+  beforeAll(() => jest.clearAllMocks());
+
   describe('renders', () => {
     it('should render title', () => {
       const {getByText} = render(<HomeScreen />);

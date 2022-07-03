@@ -36,6 +36,8 @@ jest.mock('@react-navigation/native', () => {
 });
 
 describe('EditEventCardScreen', () => {
+  beforeAll(() => jest.clearAllMocks());
+
   describe('renders', () => {
     it('should render title', () => {
       const {getByDisplayValue} = render(<EditEventCardScreen {...props} />);
