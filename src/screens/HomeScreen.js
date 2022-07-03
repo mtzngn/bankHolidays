@@ -3,7 +3,11 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 import {useDispatch} from 'react-redux';
 import {fetchBankHolidays} from '../api/bankHolidaysApi';
 import {initilizeBankHolidays} from '../reducers/bankHolidaysReducer';
-import {addDivisons, filterBySixMonthFromNow} from '../utils/generalFunctions';
+import {
+  addDivisons,
+  filterBySixMonthFromNow,
+  sortByDate,
+} from '../utils/generalFunctions';
 import {white} from '../themes/colors';
 import EventList from '../components/EventList/EventList';
 
@@ -16,8 +20,9 @@ const HomeScreen = () => {
 
   const initiliazeReduxStore = async () => {
     const bankHolidays = await fetchBankHolidays();
-    const unFilteredEvents = addDivisons(bankHolidays);
-    const events = filterBySixMonthFromNow(unFilteredEvents).slice(0, 5);
+    const divisionAddedEvents = addDivisons(bankHolidays);
+    const sortedByDateEvents = sortByDate(divisionAddedEvents);
+    const events = filterBySixMonthFromNow(sortedByDateEvents).slice(0, 5);
 
     dispatch(
       initilizeBankHolidays({

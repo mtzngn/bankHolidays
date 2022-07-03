@@ -3,6 +3,7 @@ import {
   addDivisons,
   capitalizeWords,
   formatText,
+  sortByDate,
 } from '../generalFunctions';
 
 describe('generalFunctions', () => {
@@ -50,6 +51,20 @@ describe('generalFunctions', () => {
   describe('formatText', () => {
     it('should remove dashes from string and capitilize words', () => {
       expect(formatText('hello-world')).toEqual('Hello World');
+    });
+  });
+  describe('sortByDate', () => {
+    it('should sort the events by date', () => {
+      const events = [
+        {date: '2022-02-01'},
+        {date: '2022-08-01'},
+        {date: '2021-01-01'},
+      ];
+      expect(sortByDate(events)).toEqual([
+        {date: '2021-01-01'},
+        {date: '2022-02-01'},
+        {date: '2022-08-01'},
+      ]);
     });
   });
 });

@@ -44,3 +44,9 @@ export const capitalizeWords = str => {
 export const formatText = str => {
   return capitalizeWords(str.replace(/\-/g, ' '));
 };
+
+export const sortByDate = events => {
+  return events.sort(function (a, b) {
+    return new Date(a.date) - new Date(b.date);
+  });
+};
